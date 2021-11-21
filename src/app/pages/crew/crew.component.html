@@ -7,19 +7,19 @@
 
     <div class="page-details__crew-container">
       <div class="col-left">
-        <h2 class="page-details__heading page-details__heading-desktop page-sub-heading">
+        <h1 class="page-details__heading page-details__heading-desktop page-sub-heading">
           <span class="page-number">02</span>
           <span class="page-title">Meet your crew</span>
-        </h2>
+        </h1>
 
         <div *ngIf="!loadingCrewMember">
-          <h3 class="page-details__crew-role">
+          <h2 class="page-details__crew-role">
             {{ member.role }}
-          </h3>
+          </h2>
   
-          <h4 class="page-details__crew-name">
+          <h3 class="page-details__crew-name">
             {{ member.name }}
-          </h4>
+          </h3>
   
           <article class="page-details__crew-bio">
             <p class="text">{{ member.bio }}</p>
@@ -30,12 +30,13 @@
           class="page-details__crew-switch-list"
           role="menubar">
           <li *ngFor="let _member of crewList; let i=index"
+            [attr.aria-label]="'Switch to member ' + i + 1"
             role="menuitemradio"
             class="item">
             <button (click)="changeCrewMember(_member)" 
               type="button" 
-              [attr.aria-lable]="'Switch to member ' + i + 1"
               class="switch-btn"
+              [attr.aria-label]="'Switch to member ' + i + 1"
               [class.active]="memberId === _member"></button>
           </li>
         </ul>

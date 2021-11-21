@@ -11,11 +11,12 @@
         <ul class="page-details__technology-switch-list"
           role="menubar">
           <li *ngFor="let tech of technologyList; let i=index"
+            [attr.aria-label]="'Switch to technology ' + i + 1"
             role="menuitemradio"
             class="item">
             <button (click)="changeTechnology(tech)" 
               type="button" 
-              [attr.aria-lable]="'Switch to technology ' + i + 1"
+              [attr.aria-label]="'Switch to technology ' + i + 1"
               class="switch-btn button button-small button-outlined"
               [class.button-filled]="tech === technology.id">
               {{ i + 1 }}
@@ -26,9 +27,9 @@
         <div class="page-details__technology-info">
           <h2 class="title">The terminology...</h2>
 
-          <h5 class="page-details__technology-name">
+          <h3 class="page-details__technology-name">
             {{ technology.name }}
-          </h5>
+          </h3>
 
           <article class="page-details__technology-description">
             <p class="text">{{ technology.description }}</p>

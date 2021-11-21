@@ -1,5 +1,5 @@
-<aside [attr.active]="menuState ? '' : null"
-  role="menu"
+<div [attr.active]="menuState ? '' : null"
+  role="dialog"
   class="mobile-menu">
   <div class="mobile-menu__header">
     <button (click)="closeMenu()" 
@@ -11,7 +11,7 @@
         class="icon">
     </button>
   </div>
-  <ul class="mobile-menu__link-list">
+  <ul role="menu" class="mobile-menu__link-list">
     <li *ngFor="let link of linkList; let i=index" 
       role="menuitem"
       class="mobile-menu__item">
@@ -24,4 +24,4 @@
       </a>
     </li>
   </ul>
-</aside>
+</div>
