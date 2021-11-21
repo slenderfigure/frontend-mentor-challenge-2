@@ -17,14 +17,17 @@ export class MobileMenuComponent implements OnInit {
     this.menuService.menuState$.subscribe({
       next: state => {
         this.menuState = state;
-        document.body.setAttribute('active-menu', '');
+        
+        (!this.menuState) 
+          ? document.body.removeAttribute('active-menu')
+          : document.body.setAttribute('active-menu', '');
       }
     });
   }
 
   closeMenu(): void {
-    this.menuService.changeMenuState(false);
     document.body.removeAttribute('active-menu');
+    this.menuService.changeMenuState(false);
   }
 
   @HostListener('window:click', ['$event'])
@@ -39,7 +42,6 @@ export class MobileMenuComponent implements OnInit {
   @HostListener('window:keyup', ['$event'])
   onEscKeyPressed(e: KeyboardEvent): void {
     if (!this.menuState || e.key !== 'Escape') return;
-
     this.closeMenu();
   }
 
