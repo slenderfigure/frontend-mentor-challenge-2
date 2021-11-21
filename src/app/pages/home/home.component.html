@@ -1,0 +1,24 @@
+<div *ngIf="!loadingData" class="wrapper">
+  <section class="page-details">
+    <article class="page-details__about">
+      <h3 class="sub-heading">
+        {{ pageDetails.subHeading }}
+      </h3>
+
+      <h1 class="heading">
+        {{ pageDetails.heading }}
+      </h1>
+
+      <p class="description">
+        {{ pageDetails.article }}
+      </p>
+    </article>
+
+    <div class="page-details__cta">
+      <a routerLink="/destination" 
+        class="explore-btn button button-filled button-large">
+        Explore
+      </a>
+    </div>
+  </section>
+</div>

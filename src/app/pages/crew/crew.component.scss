@@ -1,0 +1,175 @@
+@import '/src/styles.scss';
+
+.page-details {
+  position: relative;
+  padding: 0 8rem 0;
+
+  @media only screen and (max-width: $tabletBreakpoint) {
+    padding: 3.75rem 2.40rem 0;
+  }
+  
+  @media only screen and (max-width: $mobileBreakpoint) {
+    padding: 3.75rem 1.5rem 3rem;
+  }
+
+  &__heading {
+
+    &-mobile { display: none; }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      &-mobile { display: flex; }
+
+      &-desktop { display: none; }
+    }  
+  }
+
+  &__crew-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    height: 47rem;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      gap: 2rem;
+      height: unset;
+    }
+  }
+
+  .col-left {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3.75rem;
+    
+    @media only screen and (max-width: $tabletBreakpoint) {
+      align-items: center;
+      padding: 0;
+    }
+    
+    @media only screen and (max-width: $mobileBreakpoint) {
+      flex-direction: column-reverse;
+    }
+  }
+  
+  .col-right {
+    position: relative;
+    height: inherit;
+    
+    @media only screen and (max-width: $mobileBreakpoint) {
+      flex-direction: column-reverse;
+      grid-row: 1/2;
+    }
+  }
+
+  &__crew-role {
+    opacity: .5;
+    margin-bottom: 0.94rem;
+    font: $heading4;
+    text-transform: uppercase;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      font-size: 1rem;
+    }
+  }
+
+  &__crew-name {
+    margin-bottom: 1.69rem;
+    font: $heading3;
+    text-transform: uppercase;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__crew-bio {
+    color: $softNavyBlue;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      max-width: 28.62rem;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      font-size: .94rem;
+    }
+  }
+
+  &__crew-switch-list {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: auto;
+    margin-bottom: 5.88rem;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      margin: 2.5rem 0;
+      gap: 1rem;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+
+    .switch-btn {
+      flex-shrink: 0;
+      opacity: .17;
+      display: block;
+      border-radius: 50%;
+      width: .94rem;
+      height: .94rem;
+      background-color: $white;
+      transition: opacity .4s $easeInOutQuint;
+
+      &:hover:not(.active) {
+        opacity: .5;
+      }
+
+      &.active {
+        opacity: 1;
+      }
+
+      @media only screen and (max-width: $tabletBreakpoint) {
+        width: .62rem;
+        height: .62rem;
+      }
+  
+    }
+  }
+
+  &__crew-image {
+    width: inherit;
+    height: inherit;
+    
+    @media only screen and (max-width: $tabletBreakpoint) {
+      height: 33.25rem;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      height: 20rem;
+      border-bottom: 1px solid rgba($white, .15);
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+    }
+  }
+}

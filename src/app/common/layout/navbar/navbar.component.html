@@ -1,0 +1,36 @@
+<header class="header">
+  <div class="wrapper">
+    <nav class="header__navbar">
+      <a routerLink="/" class="header__page-logo">
+        <img src="assets/images/shared/logo.svg" 
+          alt="Page Logo" 
+          class="logo-icon" 
+          draggable="false">
+      </a>
+      <ul role="menubar" class="header__link-list">
+        <li *ngFor="let link of linkList; let i=index" 
+          role="menuitem" 
+          class="header__list-item">
+          <a [routerLink]="link.url"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: false }"  
+            class="header__link">
+            <span class="page-number">{{ '0' + i }}</span>
+            <span class="page-title">{{ link.label }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <button (click)="openMenu($event)"
+        [attr.active-menu]="menuState ? '' : null"
+        type="button" 
+        aria-label="Menu Button"
+        class="header__menu-btn">
+        <img src="assets/images/shared/icon-hamburger.svg" 
+          alt="Icon" 
+          class="icon"
+          draggable="false">
+      </button>
+    </nav>
+  </div>
+</header>

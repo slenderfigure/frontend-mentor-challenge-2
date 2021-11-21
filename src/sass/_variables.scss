@@ -1,0 +1,60 @@
+// Colors
+$navyBlue: #0B0D17;
+$softNavyBlue: #D0D6F9;
+$white: #FFFFFF; 
+
+// Typography 
+$fontFamily1: 'Bellefair';
+$fontFamily2: 'Barlow';
+$fontFamily3: 'Barlow Condensed';
+$fontFallback: Arial, Helvetica, sans-serif;
+$heading1: 9.38rem/normal $fontFamily1, $fontFallback;
+$heading2: 6.25rem/normal $fontFamily1, $fontFallback;
+$heading3: 3.5rem/normal $fontFamily1, $fontFallback;
+$heading4: 2rem/normal $fontFamily1, $fontFallback;
+$subHeading1: 1.75rem/normal $fontFamily1, $fontFallback;
+$bodyText: 1.125rem/2rem $fontFamily2, $fontFallback;
+
+@mixin heading-2 {
+  font: $heading2;
+  text-transform: uppercase;
+}
+
+@mixin heading-5 {              
+  font: 1.75rem/normal $fontFamily3, $fontFallback;
+  letter-spacing: 4.72px;
+  text-transform: uppercase;
+}
+
+@mixin subheading-1 {
+  font: $subHeading1;
+  text-transform: uppercase;
+}
+
+@mixin subheading-2 {
+  color: $softNavyBlue;
+  font: 0.88rem/normal $fontFamily3, $fontFallback;
+  letter-spacing: 2.36px;
+  text-transform: uppercase;
+}
+
+@mixin navbar-text {     
+  font: 1rem/normal $fontFamily3, $fontFallback;
+  letter-spacing: 2.7px;
+  text-transform: uppercase;
+}
+
+// Easing Functions
+$easeInOutQuint: cubic-bezier(0.83, 0, 0.17, 1);
+$easeOutQuint: cubic-bezier(0.22, 1, 0.36, 1);
+
+// Glass Effect
+@mixin glass-effect {
+  background: rgba($white, 0.04);
+  backdrop-filter: blur(81.5485px);
+}
+
+// Break Points
+$desktopBreakpoint: 1024px;
+$tabletBreakpoint: 800px;
+$mobileBreakpoint: 550px;

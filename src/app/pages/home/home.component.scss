@@ -1,0 +1,72 @@
+@import '/src/styles.scss';
+
+.page-details {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2.5rem;
+  padding: 12rem 10rem 8rem;
+  z-index: 1;
+
+  @media only screen and (max-width: $tabletBreakpoint) {
+    flex-direction: column;
+    align-items: center;
+    gap: 9.75rem;
+    padding: 6.62rem 6.62rem 5.62rem;
+  }
+
+  @media only screen and (max-width: $mobileBreakpoint) {
+    padding: 1rem 1.1rem 3rem;
+    gap: 5rem;
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 28.12rem;
+    color: $softNavyBlue;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      align-items: center;
+
+      .heading,
+      .sub-heading,
+      .description {
+        text-align: center;
+      }
+    }
+
+    .heading {
+      color: $white;
+      font: $heading1; 
+      text-transform: uppercase;
+
+      @media only screen and (max-width: $mobileBreakpoint) {
+        font-size: 5rem;
+        line-height: 6.25rem;
+      }
+    }
+
+    .sub-heading {
+      @include heading-5;
+      text-transform: uppercase;
+
+      @media only screen and (max-width: $mobileBreakpoint) {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        letter-spacing: 2.7px;
+      }    
+    }
+
+    .description {
+      
+      @media only screen and (max-width: $mobileBreakpoint) {
+        font-size: 1rem;
+        line-height: 1.8;
+      }    
+    }
+  }
+
+}

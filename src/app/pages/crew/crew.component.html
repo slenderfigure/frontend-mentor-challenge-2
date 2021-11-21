@@ -1,0 +1,57 @@
+<div class="wrapper">
+  <section class="page-details">
+    <h1 class="page-details__heading page-details__heading-mobile page-sub-heading">
+      <span class="page-number">02</span>
+      <span class="page-title">Meet your crew</span>
+    </h1>
+
+    <div class="page-details__crew-container">
+      <div class="col-left">
+        <h2 class="page-details__heading page-details__heading-desktop page-sub-heading">
+          <span class="page-number">02</span>
+          <span class="page-title">Meet your crew</span>
+        </h2>
+
+        <div *ngIf="!loadingCrewMember">
+          <h3 class="page-details__crew-role">
+            {{ member.role }}
+          </h3>
+  
+          <h4 class="page-details__crew-name">
+            {{ member.name }}
+          </h4>
+  
+          <article class="page-details__crew-bio">
+            <p class="text">{{ member.bio }}</p>
+          </article>
+        </div>
+
+        <ul *ngIf="!loadingCrewList" 
+          class="page-details__crew-switch-list"
+          role="menubar">
+          <li *ngFor="let _member of crewList; let i=index"
+            role="menuitemradio"
+            class="item">
+            <button (click)="changeCrewMember(_member)" 
+              type="button" 
+              [attr.aria-lable]="'Switch to member ' + i + 1"
+              class="switch-btn"
+              [class.active]="memberId === _member"></button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-right">
+        <figure class="page-details__crew-image image-container">
+          <img *ngIf="!loadingCrewMember"
+            [src]="member.images.webp" 
+            [alt]="member.name"
+            smooth-image-loading
+            class="image pos-adjust"
+            [class]="'pos-adjust-' + member.id"
+            draggable="false">
+        </figure>
+      </div>
+    </div>
+  </section>
+</div>

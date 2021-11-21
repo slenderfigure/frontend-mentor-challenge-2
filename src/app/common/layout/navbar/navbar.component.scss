@@ -1,0 +1,160 @@
+@import '/src/styles.scss';
+
+.header {
+  position: relative;
+  width: 100%;
+  @include navbar-text;
+  padding-left: 2.5rem;
+  z-index: 1;
+
+  @media only screen and (max-width: $tabletBreakpoint) {
+    padding-left: 1.5rem;
+    font-size: 0.875rem;
+    letter-spacing: 2.36px;
+  }
+
+  @media only screen and (max-width: $mobileBreakpoint) {
+    padding: 1.5rem;
+  }
+
+  &__navbar {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 0;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      padding: 0;
+    }
+  }
+
+  &__page-logo {
+    flex-shrink: 0;
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    user-select: none;
+
+    .logo-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      width: 2.5rem;
+      height: 2.5rem;
+    }  
+  }
+
+  &__link-list {
+    position: relative;
+    display: flex;
+    justify-self: flex-end;
+    align-items: center;
+    gap: 3.12rem;
+    width: 52rem;
+    height: 6rem;
+    padding-left: 7.69rem;
+    @include glass-effect;
+
+    &::before {
+      content: '';
+      opacity: .25;
+      position: absolute;
+      left: -31rem;
+      width: 64%;
+      height: 1px;
+      background-color: $white;
+      z-index: 0;
+    }
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      justify-content: center;
+      gap: 2.31rem;
+      max-width: 28.12rem;
+      padding: 0;
+
+      &::before { content: unset }
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      display: none;
+    }
+  }
+
+  &__list-item {
+    height: 100%;
+  }
+  
+  &__link {
+    position: relative;
+    display: flex;
+    gap: 0.68rem;
+    width: fit-content;
+    height: inherit;
+    align-items: center;
+    user-select: none;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      transform: translateY(100%);
+      background-color: $white;
+      transition: opacity .4s $easeInOutQuint,
+                  transform .4s $easeInOutQuint;
+    }
+
+    &.active-link {
+      &::before {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }    
+
+    &:hover:not(.active-link) {
+      &::before {
+        opacity: .5;
+        transform: translateY(0);
+      }
+    }
+
+    .page-number {
+      font-weight: bold;
+
+      @media only screen and (max-width: $tabletBreakpoint) {
+        display: none;
+      }
+    }
+  }
+
+  &__menu-btn {
+    display: none;
+    opacity: 1;
+    width: fit-content;
+    height: auto;
+    transition: opacity .4s $easeInOutQuint;
+
+    .icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    &[active-menu] {
+      opacity: 0;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      display: block;
+    }
+  }
+
+}

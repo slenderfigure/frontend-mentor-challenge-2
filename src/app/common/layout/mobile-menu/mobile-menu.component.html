@@ -1,0 +1,27 @@
+<aside [attr.active]="menuState ? '' : null"
+  role="menu"
+  class="mobile-menu">
+  <div class="mobile-menu__header">
+    <button (click)="closeMenu()" 
+      class="mobile-menu__close-btn"
+      aria-label="Close Button">
+      <img src="assets/images/shared/icon-close.svg" 
+        alt="Close Icon" 
+        draggable="false"
+        class="icon">
+    </button>
+  </div>
+  <ul class="mobile-menu__link-list">
+    <li *ngFor="let link of linkList; let i=index" 
+      role="menuitem"
+      class="mobile-menu__item">
+      <a [routerLink]="link.url"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: false }"  
+        class="mobile-menu__link">
+        <span class="page-number">{{ '0' + i }}</span>
+        <span class="page-title">{{ link.label }}</span>
+      </a>
+    </li>
+  </ul>
+</aside>

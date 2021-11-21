@@ -1,0 +1,83 @@
+@import '/src/styles.scss';
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 15.87rem;
+  height: 100%;
+  transform: translateX(100%);
+  @include glass-effect;
+  @include navbar-text;
+  transition: transform .4s $easeInOutQuint;
+  z-index: 100;
+
+  &[active] {
+    transform: translateX(0);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 6rem;
+    padding: 0 1.5rem;
+  }
+
+  &__close-btn {
+    display: block;
+    width: fit-content;
+    height: auto;
+
+    .icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    padding: 2rem 0;
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    gap: 0.68rem;
+    width: 100%;
+    height: 1.9rem;
+    padding-left: 2rem;
+    align-items: center;
+    user-select: none;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      width: 3px;
+      height: 100%;
+      transform: translateX(100%);
+      background-color: $white;
+      transition: opacity .4s $easeInOutQuint,
+                  transform .4s $easeInOutQuint;
+    }
+
+    &.active-link {
+      &::after {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }   
+
+    .page-number {
+      font-weight: bold;
+    }
+  }
+}

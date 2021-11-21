@@ -1,0 +1,62 @@
+<div class="wrapper">
+  <section class="page-details">
+    <h1 class="page-details__heading page-sub-heading">
+      <span class="page-number">01</span>
+      <span class="page-title">Pick your destination</span>
+    </h1>
+
+    <div class="page-details__destination-container">
+      <div class="left-col">
+        <figure class="page-details__destination-picture image-container">
+          <img *ngIf="!loadingDestination"
+            smooth-image-loading
+            [src]="destination.images.webp" 
+            [alt]="destination.name" 
+            draggable="false"
+            class="image">
+        </figure>
+      </div>
+
+      <div class="right-col">
+        <ul *ngIf="!loadingList"
+          role="menubar"
+          class="page-details__destination-list">
+          <li *ngFor="let name of destinationList;" 
+            role="menuitem"
+            class="page-details__destination-item">
+            <a (click)="changeDestination(name)"
+              class="page-details__destination-link"
+              [class.active-link]="targetDestinationName === name">
+              {{ name }}
+            </a>
+          </li>
+        </ul>
+
+        <ng-container *ngIf="!loadingDestination">
+          <h2 class="page-details__destination-title">
+            {{ destination.name }}
+          </h2>
+  
+          <p class="page-details__destination-description">
+            {{ destination.description }}
+          </p>
+  
+          <ul class="page-details__destination-travel-details">
+            <li class="list-item">
+              <h5 class="title">AVG. Distance</h5>
+              <span class="avg-distance">
+                {{ destination.distance }}
+              </span>
+            </li>
+            <li class="list-item">
+              <h5 class="title">EST. Travel Time</h5>
+              <span class="est-travel-time">
+                {{ destination.travel }}
+              </span>
+            </li>
+          </ul>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+</div>

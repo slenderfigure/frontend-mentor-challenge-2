@@ -1,0 +1,23 @@
+html,
+body {
+  min-height: 100vh !important;
+}
+
+body {
+  color: $white;
+  font: $bodyText;
+  background-color: $navyBlue;
+  box-sizing: border-box;
+
+  &[active-menu] {
+    overflow: hidden;
+  }
+}
+
+*,
+*::before,
+*::after {
+  color: inherit;
+  font: inherit;
+  box-sizing: inherit;
+}

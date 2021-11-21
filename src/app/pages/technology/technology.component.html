@@ -1,0 +1,53 @@
+<div class="wrapper">
+  <section class="page-details">
+    <h1 class="page-details__heading page-sub-heading">
+      <span class="page-number">03</span>
+      <span class="page-title">Space Launch 101</span>
+    </h1>
+
+    <div *ngIf="!loadingTechnology && !loadingList" 
+      class="page-details__technology-container">
+      <div class="left-col">
+        <ul class="page-details__technology-switch-list"
+          role="menubar">
+          <li *ngFor="let tech of technologyList; let i=index"
+            role="menuitemradio"
+            class="item">
+            <button (click)="changeTechnology(tech)" 
+              type="button" 
+              [attr.aria-lable]="'Switch to technology ' + i + 1"
+              class="switch-btn button button-small button-outlined"
+              [class.button-filled]="tech === technology.id">
+              {{ i + 1 }}
+            </button>
+          </li>
+        </ul>
+
+        <div class="page-details__technology-info">
+          <h2 class="title">The terminology...</h2>
+
+          <h5 class="page-details__technology-name">
+            {{ technology.name }}
+          </h5>
+
+          <article class="page-details__technology-description">
+            <p class="text">{{ technology.description }}</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="right-col">
+        <figure class="page-details__technology-image image-container">
+          <img 
+            [srcset]="technolgyImgSrcset"
+            [sizes]="technolgyImgSizes"
+            [src]="technology.images.portrait"
+            [alt]="technology.name"
+            smooth-image-loading 
+            draggable="false" 
+            class="image">
+        </figure>
+      </div>
+    </div>
+  </section>
+</div>

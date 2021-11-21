@@ -1,0 +1,182 @@
+@import '/src/styles.scss';
+
+.page-details {
+  position: relative;
+  padding: 3.75rem 8rem 3.88rem;
+
+  @media only screen and (max-width: $tabletBreakpoint) {
+    padding: 2rem 2.40rem 3.88rem;
+  }
+
+  &__destination-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 9.82rem;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 3.31rem;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      gap: 1.63rem;
+    }
+
+  }
+
+  .right-col {
+    max-width: 27.81rem;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      max-width: 35.81rem;
+    }
+  }
+
+  &__destination-picture {
+    max-width: 27.81rem;
+    max-height: 27.81rem;
+    min-width: 18.75rem;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      width: 18.75rem;
+      height: 18.75rem;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      width: 14.63rem;
+      height: 14.63rem;
+      min-width: unset;
+    }
+  }
+
+  &__destination-list {
+    display: flex;
+    justify-self: flex-end;
+    align-items: center;
+    gap: 2.18rem;
+    width: 100%;
+    height: 3rem;
+    margin-bottom: 2.31rem;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      justify-content: center;
+    }
+    
+    @media only screen and (max-width: $mobileBreakpoint) {
+      gap: 1.63rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  &__destination-item {
+    height: 100%;
+  }
+
+  &__destination-link {
+    position: relative;
+    display: flex;
+    gap: 0.68rem;
+    width: fit-content;
+    height: inherit;
+    align-items: center;
+    user-select: none;
+    @include navbar-text;
+    color: $softNavyBlue;
+    cursor: pointer;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      transform: translateY(100%);
+      background-color: $white;
+      transition: opacity .4s $easeInOutQuint,
+                  transform .4s $easeInOutQuint;
+    }
+
+    &.active-link {
+      color: $white;
+
+      &::before {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }    
+
+    &:hover:not(.active-link) {
+      &::before {
+        opacity: .5;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__destination-title {
+    @include heading-2;
+    margin-bottom: .88rem;
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      font-size: 5rem;
+      text-align: center;
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      font-size: 3.38rem;
+    }
+  }
+
+  &__destination-description {
+    color: $softNavyBlue;
+    padding-bottom: 3.38rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+
+  &__destination-travel-details {
+    display: flex;
+    gap: 4.94rem;
+    padding-top: 1.75rem;
+
+    .list-item {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    .title {
+      @include subheading-2;
+    }
+
+    .avg-distance,
+    .est-travel-time {
+      @include subheading-1;
+    }    
+
+    @media only screen and (max-width: $tabletBreakpoint) {
+      justify-content: center;
+
+      .title,
+      .avg-distance,
+      .est-travel-time {
+        text-align: center;
+      }  
+    }
+
+    @media only screen and (max-width: $mobileBreakpoint) {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+  }
+}
